@@ -11,7 +11,6 @@ function App() {
   const [facts, setFacts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentCategory, setCurrentCategory] = useState("all");
-  const [filterBtn, setFilterBtn] = useState(false);
 
   useEffect(
     function () {
@@ -49,14 +48,9 @@ function App() {
         <NewFactForm setFacts={setFacts} setOpenForm={setOpenForm} />
       ) : null}
 
-      <button className="btn" onClick={() => {}}>
-        Filter
-      </button>
-
       <main className="main">
-        {filterBtn ? (
-          <CategoryFilter setCurrentCategory={setCurrentCategory} />
-        ) : null}
+        <CategoryFilter setCurrentCategory={setCurrentCategory} />
+
         {isLoading ? (
           <Loader />
         ) : (
